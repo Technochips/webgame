@@ -1,0 +1,17 @@
+.game
+{
+	background-color: white;
+	color: black;
+	position: fixed;
+	margin: auto;
+	left: 50%;
+	top: 50%;
+	user-select: none;
+	pointer-events: none;
+}
+.game img
+{
+	image-rendering: pixelated;
+	position: absolute;
+	overflow: hidden;
+}
