@@ -26,17 +26,19 @@ function initializePrecache()
 
 function precacheNext()
 {
-	precache(precaches[precached], precacheNext);
-	setPrecacheText();
-	precached++;
 	if(precached == precaches.length)
 	{
 		precacheDone();
+		return;
 	}
+	precache(precaches[precached], precacheNext);
+	setPrecacheText();
+	precached++;
 }
 
 function precacheDone()
 {
+	removeString("loader");
 	removeSprite("loading");
 }
 
