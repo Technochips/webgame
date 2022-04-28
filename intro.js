@@ -1,4 +1,6 @@
 introTime = null;
+const introTimeStop = 4000;
+const introTimeCenter = introTimeStop/2
 
 function introUpdate(timestamp)
 {
@@ -8,13 +10,13 @@ function introUpdate(timestamp)
 		addSprite("technochips", "technochips", "center", -1000);
 		introTime = timestamp;
 	}
-	if(timestamp >= introTime + 4000)
+	if(timestamp >= introTime + introTimeStop)
 	{
 		introStop();
 		return;
 	}
-	sprites["agameby"].setY(Math.pow(timestamp/1500 - 4/3, 5) * 128 + 50);
-	sprites["technochips"].setY(Math.pow(timestamp/1500 - 4/3, 5) * -128 + 80);
+	sprites["agameby"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 3) * 128 + 40);
+	sprites["technochips"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 3) * -128 + 60);
 }
 
 function introStop()
