@@ -4,7 +4,8 @@ const gameWidth = 128;
 const gameHeight = 128;
 zoomFactor = 1;
 oldZoomFactor = 0;
-gameState = "loading"
+currentUpdate = null;
+stop = false;
 
 function findZoomFactor()
 {
@@ -30,6 +31,16 @@ function resetSize()
 	}
 }
 
+function gameUpdate(timestamp)
+{
+	if(currentUpdate == null) currentUpdate = introUpdate;
+
+	currentUpdate(timestamp);
+
+	if(!stop) window.requestAnimationFrame(gameUpdate);
+	else console.log("stopped!");
+}
+
 function initialize()
 {
 	setSize();
@@ -37,6 +48,7 @@ function initialize()
 	window.onresize = resetSize;
 
 	game.style.backgroundColor = "black";
+	game.style.color = "white";
 	
 	precache("loading", initializePrecache)
 }

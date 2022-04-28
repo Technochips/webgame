@@ -40,6 +40,8 @@ function precacheDone()
 {
 	removeString("loader");
 	removeSprite("loading");
+
+	window.requestAnimationFrame(gameUpdate);
 }
 
 function setPrecacheText()
