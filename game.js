@@ -5,7 +5,7 @@ const gameHeight = 128;
 zoomFactor = 1;
 oldZoomFactor = 0;
 currentUpdate = null;
-stop = false;
+pause = false;
 
 function findZoomFactor()
 {
@@ -37,7 +37,7 @@ function gameUpdate(timestamp)
 
 	currentUpdate(timestamp);
 
-	if(!stop) window.requestAnimationFrame(gameUpdate);
+	if(!pause) window.requestAnimationFrame(gameUpdate);
 	else console.log("stopped!");
 }
 

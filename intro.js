@@ -15,15 +15,15 @@ function introUpdate(timestamp)
 		introStop();
 		return;
 	}
-	sprites["agameby"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 3) * 128 + 40);
-	sprites["technochips"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 3) * -128 + 60);
+	sprites["agameby"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 4) * -128 + 40);
+	sprites["technochips"].setY(Math.pow(timestamp/introTimeCenter - (introTimeCenter + introTime) / introTimeCenter, 4) * 128 + 60);
 }
 
 function introStop()
 {
 	removeSprite("agameby");
 	removeSprite("technochips");
-	stop = true;
+	currentUpdate = titleUpdate;
 
 	game.style.backgroundColor = "";
 	game.style.color = "";

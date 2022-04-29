@@ -1,7 +1,9 @@
 precaches = [
 	"loading",
 	"agameby",
-	"technochips"
+	"technochips",
+	"title",
+	"placeholder"
 ]
 precached = 1;
 

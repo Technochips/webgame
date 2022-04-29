@@ -49,6 +49,15 @@ function addSprite(name, graphics, x, y, width, height, ox, oy)
 			this.element.style.top = Math.round(v - this.oy) + "px";
 			return v;
 		},
+		setPos: function(x,y)
+		{
+			if(x == "center") x = gameWidth/2 - this.width/2;
+			if(y == "center") y = gameHeight/2 - this.height/2;
+			this.x = x;
+			this.y = y;
+			this.element.style.left = Math.round(x - this.ox) + "px";
+			this.element.style.top = Math.round(y - this.oy) + "px";
+		},
 		setWidth: function(v)
 		{
 			this.width = v;
